@@ -1,0 +1,6 @@
+2020-03-18 15:28:35,325  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5001
+ 2020-03-18 15:28:35,379  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2020-03-18 15:28:35,382  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2020-03-18 15:28:35,406  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: D:\project\dotNetAndReactjs\reactapp\src\server\WebApi01\WebApi01
+ 2020-03-18 16:42:07,652  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application is shutting down...
+ 
