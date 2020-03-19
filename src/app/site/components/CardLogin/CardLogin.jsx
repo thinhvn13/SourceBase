@@ -15,6 +15,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import * as AuthenticateTypes from './../../../store/action/Authenticate/AuthenticateType';
 import * as AuthenticateActions from './../../../store/action/Authenticate/AuthenticateActions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -158,8 +159,8 @@ const CardLogin = ({ authenticateUser, authenticated }) => {
     return (
         <div className={classes.root}>
             <label className={classes.titleHeader} >LOGIN</label>
-            <FormHelperText className={classes.errorMsg} id="standard-weight-helper-text">{authenticated === AuthenticateTypes.NOT_AUTHENTICATED ? isValidate? 'Login incorrect.':null : null}</FormHelperText>
-            <form className={classes.form} noValidate autoComplete="off" onSubmit={e=>submitForm(e, username, password, isValidate)}>
+            <FormHelperText className={classes.errorMsg} id="standard-weight-helper-text">{authenticated === AuthenticateTypes.NOT_AUTHENTICATED ? isValidate ? 'Login incorrect.' : null : null}</FormHelperText>
+            <form className={classes.form} noValidate autoComplete="off" onSubmit={e => submitForm(e, username, password, isValidate)}>
                 <FormControl>
                     <InputLabel htmlFor="account-input" className={classes.elementLabel}>Phone</InputLabel>
                     <Input className={classes.elementInput}
@@ -224,14 +225,14 @@ const CardLogin = ({ authenticateUser, authenticated }) => {
 
                 </FormControl>
             </form>
-            <label className={classes.titleFooter}> This is footer title !!! <a href='#'>Home</a> </label>
+            <label className={classes.titleFooter}> This is footer title !!! <Link to='/'> Home </Link></label>
         </div>
     )
 }
 
 
 const mapStateToProps = (state, ownProps) => {
-    return { 
+    return {
         authenticated: state.Authenticate.authenticated
     }
 }

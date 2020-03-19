@@ -29,11 +29,11 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         display: 'flex',
         overflow: 'hidden',
-        position:'relative',
+        position: 'relative',
         '& .MuiFormControlLabel-label': {
             fontSize: '33px',
         },
-        '& .MuiIconButton-label':{
+        '& .MuiIconButton-label': {
             flex: '0 0 auto',
             color: 'rgba(0, 0, 0, 0.54)',
             padding: '12px',
@@ -43,8 +43,8 @@ const useStyles = makeStyles({
             transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
             borderadius: '50%'
         },
-        '& .MuiSvgIcon-root':{
-            fontSize:'40px'
+        '& .MuiSvgIcon-root': {
+            fontSize: '40px'
         }
     },
     form: {
@@ -57,11 +57,11 @@ const useStyles = makeStyles({
         width: '70%',
     },
     titleHeader: {
-        marginTop:"10%",
-        marginBottom:"10%",
+        marginTop: "10%",
+        marginBottom: "10%",
         textTransform: 'uppercase',
         fontSize: '50px',
-        fontWeight:'500',
+        fontWeight: '500',
     },
     titleFooter: {
         bottom: '5%',
@@ -76,7 +76,7 @@ const useStyles = makeStyles({
     },
     elementBtn: {
         fontSize: '38px',
-        background:'#FF8E53'
+        background: '#FF8E53'
     },
     elementLabel: {
         fontSize: '38px'
@@ -87,7 +87,7 @@ const useStyles = makeStyles({
     },
     errorMsg: {
         fontSize: '40px',
-        color:'Red'
+        color: 'Red'
 
     },
     elementInput: {
@@ -96,7 +96,7 @@ const useStyles = makeStyles({
 
 });;
 
-const CardRegister = ({registerUser, authenticated, msg}) => {
+const CardRegister = ({ registerUser, authenticated, msg }) => {
     const [username, setUserName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -118,7 +118,7 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
     const changeShowRePassword = () => {
         setShowRePassword(!showRePassword);
     };
-    
+
 
     const changeFirstName = firstName => {
         setFirstName(firstName.target.value);
@@ -143,7 +143,7 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
         var letters = /^[A-Za-z]+$/;
         if (!isValidate)
             return false
-        if(temp.match(letters) && password.length >= 5)
+        if (temp.match(letters) && password.length >= 5)
             return false;
         return true
     }
@@ -194,7 +194,7 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
             && (!checkPhone(phone, isValidate))
             && (!checkPassword(password, isValidate))
             && (!checkMatchPassword(password, rePassword, isValidate))
-            )
+        )
             registerUser(e);
     }
 
@@ -207,8 +207,8 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
     return (
         <div className={classes.root}>
             <label className={classes.titleHeader} >REGISTER</label>
-            <FormHelperText className={classes.errorMsg} id="standard-weight-helper-text">{authenticated === AuthenticateTypes.REGISTER_FAIL ? isValidate? msg:null : null}</FormHelperText>
-            <form className={classes.form} noValidate autoComplete="off" onSubmit={e=>submitForm(e, firstName, lastName, username, phone, password, rePassword, isValidate)}>
+            <FormHelperText className={classes.errorMsg} id="standard-weight-helper-text">{authenticated === AuthenticateTypes.REGISTER_FAIL ? isValidate ? msg : null : null}</FormHelperText>
+            <form className={classes.form} noValidate autoComplete="off" onSubmit={e => submitForm(e, firstName, lastName, username, phone, password, rePassword, isValidate)}>
                 <FormControl>
                     <InputLabel htmlFor="account-input" className={classes.elementLabel}>First Name</InputLabel>
                     <Input className={classes.elementInput}
@@ -250,7 +250,7 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
                     />
                     <FormHelperText className={classes.errorMsg} id="standard-weight-helper-text">{checkFied(username, isValidate) ? 'User Name invalid' : null}</FormHelperText>
                 </FormControl>
-                
+
                 <FormControl>
                     <InputLabel htmlFor="account-input" className={classes.elementLabel}>Phone</InputLabel>
                     <Input className={classes.elementInput}
@@ -298,7 +298,7 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
                         type={showRePassword ? 'text' : 'password'}
                         value={rePassword}
                         onChange={changeRePassword}
-                        error={checkMatchPassword(password, rePassword, isValidate)  ? true : false}
+                        error={checkMatchPassword(password, rePassword, isValidate) ? true : false}
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
@@ -319,14 +319,14 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
                     <FormControlLabel
                         variant="contained"
                         control={
-                            <Checkbox checked={isagree} onChange={changeIsAgree} name="is_agree"/>
+                            <Checkbox checked={isagree} onChange={changeIsAgree} name="is_agree" />
                         }
                         label={<p>I agree to the account <a href='#' >Terms</a> \& <a href='#'> Privacy. </a></p>}
                     />
                 </FormControl>
                 <FormControl className={classes.bottonLogin}>
                     <Button
-                        disabled={(checkIsAgree(isagree)||(authenticated === AuthenticateTypes.REGISTERING))? true: false}
+                        disabled={(checkIsAgree(isagree) || (authenticated === AuthenticateTypes.REGISTERING)) ? true : false}
                         className={classes.elementBtn}
                         variant="contained"
                         size='medium'
@@ -337,14 +337,14 @@ const CardRegister = ({registerUser, authenticated, msg}) => {
                     </Button>
                 </FormControl>
             </form>
-            <label className={classes.titleFooter}> This is footer title !!! <a href='#'>Home</a> </label>
+            <label className={classes.titleFooter}> This is footer title !!! <Link to='/'> Home </Link> </label>
         </div>
     )
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { 
-        authenticated: state.Authenticate.authenticated, 
+    return {
+        authenticated: state.Authenticate.authenticated,
         msg: state.Authenticate.msg
     }
 }
