@@ -2,4 +2,4 @@
 
 # command:
 npm install
-npm start
+npm run frontend-dev
