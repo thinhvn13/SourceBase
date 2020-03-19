@@ -4,6 +4,7 @@ import { CardRegisterPresentation } from './../../components/CardRegister/index'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -13,34 +14,35 @@ const useStyles = makeStyles({
         border: 0,
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-        },
-    Btn:{
-        width:"50%",
+    },
+    Btn: {
+        width: "50%",
         fontSize: "50px",
         background: 'linear-gradient(#FE6B8B 10%, #FF8E53 90%)',
         border: 0,
         borderRadius: 3,
         boxShadow: '0 5px 4px 3px rgba(255, 105, 135, .3)',
-        color:"black"
+        color: "black"
     },
-    header:{
-        
+    header: {
+
     },
-    body:{
-        width:"100%",
-        height:"80%",
-        position:"relative",
-        marginTop:"0px"
+    body: {
+        width: "100%",
+        height: "80%",
+        position: "relative",
+        marginTop: "0px"
     }
-    });
+});
 const HomePage = () => {
     const classes = useStyles();
-   
+
     return (
-        <>  
-        <div>
-            HOME 
-        </div>
+        <>
+            <div>
+                HOME
+                <Link to='/login'> Login </Link>
+            </div>
         </>
     )
 }
@@ -48,7 +50,7 @@ const HomePage = () => {
 
 const mapStateToProps = (state, ownProps) => {
     console.log(state)
-    return { 
+    return {
         authenticated: state.Authenticate.authenticated
     }
 }
